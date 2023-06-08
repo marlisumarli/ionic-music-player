@@ -1,0 +1,41 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Dashboard</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <ion-card class="ion-text-center" button="" [routerLink]="['request-songs']">
+    <ion-card-header>
+      <ion-card-title>
+        Song Request
+      </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <h1>{{data.songRequest}}</h1>
+    </ion-card-content>
+  </ion-card>
+  <ion-card class="ion-text-center">
+    <ion-card-header>
+      <ion-card-title>
+        User Registered
+      </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <h1>{{data.userCount}}</h1>
+    </ion-card-content>
+  </ion-card>
+  <ion-card class="ion-text-center">
+    <ion-card-header>
+      <ion-card-title>
+        Artist Verified
+      </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <h1>{{data.artistCount}}</h1>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

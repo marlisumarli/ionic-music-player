@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar class="ion-text-center">
+    <ion-title>Albums</ion-title>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-searchbar animated="true" mode="ios" placeholder="Search"></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <ion-list-header>
+    <ion-label class="ion-text-end ion-padding">
+      <ion-button mode="ios" (click)="onCreateAlbum()">Create new</ion-button>
+    </ion-label>
+  </ion-list-header>
+
+  <ion-card *ngFor="let album of loadedAlbums">
+    <ion-card-header>
+      <h3 routerLink="{{album.id}}">{{album.title}}</h3>
+    </ion-card-header>
+    <ion-card-content>
+      <div *ngFor="let song of loadedSongs">
+        <ion-label>
+          <ion-row [routerLink]="[album.id, 'song', song.id]" *ngIf="song.albumId === album.id">
+            <ion-col>
+              <h2>{{song.title}}</h2>
+            </ion-col>
+            <ion-col class="ion-text-center">
+              <small>{{durationHelper(song.duration)}}</small>
+            </ion-col>
+            <ion-col class="ion-text-center">
+              <small>{{song.likeCount}} likes</small>
+            </ion-col>
+          </ion-row>
+        </ion-label>
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

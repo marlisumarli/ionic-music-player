@@ -1,0 +1,24 @@
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>Sign up artist</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <form [formGroup]="formGroup">
+      <ion-input class="ion-margin-bottom" fill="outline"
+                 label="Your Name" labelPlacement="floating" formControlName="fullName" required=""></ion-input>
+      <ion-img [src]="fileUrl"></ion-img>
+      <ion-input type="file" (change)="fileReader($event)"></ion-input>
+      <ion-input class="ion-margin-bottom" fill="outline"
+                 label="Email" labelPlacement="floating" formControlName="email" placeholder="example@gmail.com"
+                 required="" type="email"></ion-input>
+      <ion-input class="ion-margin-bottom" fill="outline" label="Password"
+                 labelPlacement="floating" minLength="8" formControlName="password" placeholder="password"
+                 required="" type="password"></ion-input>
+      <ion-buttons>
+        <ion-button color="primary" fill="clear" mode="ios" type="button" routerLink="/login">Switch to Login
+        </ion-button>
+        <ion-button color="primary" fill="solid" mode="ios" type="submit" (click)="onRegister()">Signup</ion-button>
+      </ion-buttons>
+    </form>
+  </ion-card-content>
+</ion-card>

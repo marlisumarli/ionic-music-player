@@ -1,0 +1,35 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/admin/tabs/dashboard"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Song Requests</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <ion-list>
+    <ion-item *ngFor="let song of pendingSongs">
+      <ion-label>
+        <h2><strong>{{song.title}}</strong></h2>
+        <small>{{song.artistName}} • {{song.albumTitle}}</small>
+      </ion-label>
+      <ion-fab vertical="bottom" horizontal="end">
+        <ion-fab-button size="small" color="warning">
+          <ion-icon name="chevron-back-circle"></ion-icon>
+        </ion-fab-button>
+        <ion-fab-list side="start">
+          <ion-fab-button color="danger" (click)="onRejected(song.id)">
+            <ion-icon name="remove-circle"></ion-icon>
+          </ion-fab-button>
+          <ion-fab-button color="success" (click)="onAccepted(song.id)">
+            <ion-icon name="checkmark"></ion-icon>
+          </ion-fab-button>
+        </ion-fab-list>
+      </ion-fab>
+    </ion-item>
+  </ion-list>
+</ion-content>

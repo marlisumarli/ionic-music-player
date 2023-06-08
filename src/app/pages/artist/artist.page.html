@@ -1,0 +1,17 @@
+<ion-tabs (ionTabsDidChange)="setSelectedTab()">
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="dashboard">
+      <ion-icon [name]="selectedTab === 'dashboard' ? 'home': 'home-outline'"></ion-icon>
+      <ion-label>Dashboard</ion-label>
+    </ion-tab-button>
+    <ion-tab-button tab="albums">
+      <ion-icon [name]="selectedTab === 'albums' ? 'albums': 'albums-outline'"></ion-icon>
+      <ion-label>Albums</ion-label>
+    </ion-tab-button>
+    <ion-tab-button tab="account">
+      <ion-icon [name]="selectedTab === 'account' ? 'person': 'person-outline'"></ion-icon>
+      <ion-label>Account</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+
+</ion-tabs>

@@ -1,0 +1,34 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Your Profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-img [src]="account.image"></ion-img>
+    <ion-card-header>
+      <ion-card-title>
+        <ion-row class="ion-justify-content-center">
+          <ion-col size="10">
+            <ion-text>{{account.fullName}}</ion-text>
+          </ion-col>
+          <ion-button (click)="onButtonChange()" class="ion-no-padding" fill="clear" mode="ios" size="small">Change
+          </ion-button>
+        </ion-row>
+      </ion-card-title>
+
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-row>
+        <ion-col size="12">
+          <ion-text>
+            {{account.bio}}
+          </ion-text>
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

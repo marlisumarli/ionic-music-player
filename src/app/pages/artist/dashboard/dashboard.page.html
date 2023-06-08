@@ -1,0 +1,92 @@
+<ion-menu contentId="main-content-2">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Settings</ion-title>
+      <ion-buttons slot="end">
+        <ion-button color="danger" (click)="onLogout()">
+          <ion-icon name="log-out-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-card>
+      <ion-card-content>
+        <ion-list lines="none">
+          <ion-menu-toggle auto-hide="false">
+            <ion-item [routerLink]="'/'" detail="false" routerDirection="root"
+                      routerLinkActive="selected">
+              <ion-icon name="shield" slot="start"></ion-icon>
+              <ion-label><strong>Privacy and Security</strong></ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+  </ion-content>
+</ion-menu>
+<div class="ion-page" id="main-content-2">
+  <ion-header [translucent]="true">
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button>
+          <ion-icon name="settings-outline"></ion-icon>
+        </ion-menu-button>
+      </ion-buttons>
+      <ion-title>Dashboard</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content [fullscreen]="true" class="ion-padding">
+    <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
+      <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Information</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-label>
+          <ion-row>
+            <ion-col size="12">
+              <ion-row>
+                <ion-col size="6">Published Songs</ion-col>
+                <ion-col size="1">:</ion-col>
+                <ion-col>{{data.countSongPublished}}</ion-col>
+              </ion-row>
+            </ion-col>
+            <ion-col size="12">
+              <ion-row>
+                <ion-col size="6">Albums</ion-col>
+                <ion-col size="1">:</ion-col>
+                <ion-col>{{data.countAlbums}}</ion-col>
+              </ion-row>
+            </ion-col>
+            <ion-col size="12">
+              <ion-row>
+                <ion-col size="6">Song Request</ion-col>
+                <ion-col size="1">:</ion-col>
+                <ion-col>{{data.countSongPending}}</ion-col>
+              </ion-row>
+            </ion-col>
+          </ion-row>
+        </ion-label>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Popular Song</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-label>
+          <ion-row *ngFor="let song of data.popularSongs">
+            <ion-col><strong>{{song.title}}</strong></ion-col>
+            <ion-col>{{song.likes}} likes</ion-col>
+          </ion-row>
+        </ion-label>
+      </ion-card-content>
+    </ion-card>
+
+  </ion-content>
+</div>

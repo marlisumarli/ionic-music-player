@@ -1,0 +1,26 @@
+<ion-tabs (ionTabsDidChange)="setSelectedTab()" id="main-content">
+
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="dashboard">
+      <ion-icon [name]="selectedTab === 'dashboard' ? 'home': 'home-outline'"></ion-icon>
+      <ion-label>Dashboard</ion-label>
+    </ion-tab-button>
+    <ion-tab-button tab="users">
+      <ion-icon [name]="selectedTab === 'users' ? 'person': 'person-outline'"></ion-icon>
+      <ion-label>Users</ion-label>
+    </ion-tab-button>
+    <ion-tab-button tab="artists">
+      <ion-icon [name]="selectedTab === 'artists' ? 'star-half': 'star-half-outline'"></ion-icon>
+      <ion-label>Artists</ion-label>
+    </ion-tab-button>
+    <ion-tab-button tab="admins">
+      <ion-icon [name]="selectedTab === 'admins' ? 'cog': 'cog-outline'"></ion-icon>
+      <ion-label>Admins</ion-label>
+    </ion-tab-button>
+    <ion-tab-button tab="admin">
+      <ion-icon [name]="selectedTab === 'admin' ? 'cog': 'cog-outline'"></ion-icon>
+      <ion-label>Setting</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+
+</ion-tabs>

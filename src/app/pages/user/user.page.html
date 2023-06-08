@@ -1,0 +1,52 @@
+<ion-menu contentId="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Settings</ion-title>
+      <ion-buttons slot="end">
+        <ion-button color="danger" (click)="onLogout()">
+          <ion-icon name="log-out-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-card>
+      <ion-card-content>
+        <ion-list lines="none">
+          <ion-menu-toggle auto-hide="false">
+            <ion-item [routerLink]="'/user/account'" detail="false" routerDirection="root"
+                      routerLinkActive="selected">
+              <ion-icon name="person" slot="start"></ion-icon>
+              <ion-label><strong>Account</strong></ion-label>
+            </ion-item>
+            <ion-item [routerLink]="'/user/privacy-security'" detail="false" routerDirection="root"
+                      routerLinkActive="selected">
+              <ion-icon name="shield" slot="start"></ion-icon>
+              <ion-label><strong>Privacy and Security</strong></ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+  </ion-content>
+</ion-menu>
+
+<ion-tabs (ionTabsDidChange)="setSelectedTab()" id="main-content">
+  <app-player-ctrl></app-player-ctrl>
+
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="home">
+      <ion-icon [name]="selectedTab === 'home' ? 'home': 'home-outline'"></ion-icon>
+      <ion-label>Discover</ion-label>
+    </ion-tab-button>
+    <ion-tab-button tab="search">
+      <ion-icon [name]="selectedTab === 'search' ? 'search': 'search-outline'"></ion-icon>
+      <ion-label>Search</ion-label>
+    </ion-tab-button>
+    <ion-tab-button tab="playlist">
+      <ion-icon [name]="selectedTab === 'playlist' ? 'musical-notes': 'musical-notes-outline'"></ion-icon>
+      <ion-label>Liked songs</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+
+</ion-tabs>

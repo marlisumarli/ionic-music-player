@@ -1,0 +1,21 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/admin/tabs/artists"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Artist Option</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <form>
+    <ion-list>
+      <ion-item button="" (click)="onUpdateEmail()">
+        Change Email : {{artist.email}}
+      </ion-item>
+      <ion-item button="">
+        Change Password : ********
+      </ion-item>
+    </ion-list>
+  </form>
+</ion-content>

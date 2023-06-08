@@ -1,0 +1,50 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button [defaultHref]="'/user'"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{artist.fullName}} - Artist</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-img [alt]="artist.fullName" [src]="artist.image"></ion-img>
+    <ion-card-header>
+      <ion-card-title>
+        <ion-row class="ion-justify-content-center">
+          <ion-col size="10">
+            <ion-text>{{artist.fullName}}</ion-text>
+          </ion-col>
+        </ion-row>
+      </ion-card-title>
+
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-row>
+        <ion-col size="12">
+          <ion-text>
+            {{artist.bio}}
+          </ion-text>
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-list>
+    <ion-list-header>
+      <h2>Albums</h2>
+    </ion-list-header>
+    <ion-item *ngFor="let album of albums"
+              [routerLink]="['/', 'user', 'tabs', 'home', 'artists', artist.id, 'albums', album.id]" button="">
+      <ion-thumbnail slot="start">
+        <ion-img [src]="album.image"></ion-img>
+      </ion-thumbnail>
+      <ion-label>
+        <h2><strong>{{album.title}}</strong></h2>
+        <small>{{album.publishDate}}</small>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

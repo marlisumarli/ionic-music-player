@@ -1,0 +1,24 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/admin/tabs/users"></ion-back-button>
+    </ion-buttons>
+    <ion-title>User Option</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <form>
+    <ion-list>
+      <ion-item button="" (click)="onUpdateEmail()">
+        Change Email : {{user.email}}
+      </ion-item>
+      <ion-item button="" (click)="onUpdatePassword()">
+        Change Password : ********
+      </ion-item>
+      <ion-item button="" (click)="onDelete()">
+        Delete
+      </ion-item>
+    </ion-list>
+  </form>
+</ion-content>

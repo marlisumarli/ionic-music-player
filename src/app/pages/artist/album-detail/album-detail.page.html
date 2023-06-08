@@ -1,0 +1,40 @@
+<ion-toolbar>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button [defaultHref]="'/artist/tabs/albums'"></ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button (click)="onDeleteAlbum()">Del</ion-button>
+    </ion-buttons>
+    <ion-title>{{album.title}}</ion-title>
+  </ion-toolbar>
+</ion-toolbar>
+
+<ion-content>
+  <ion-img [alt]="album.title" [src]="album.image"></ion-img>
+  <div class="ion-padding">
+    <ion-text>{{album.title}} • {{album.publishDate}}
+    </ion-text>
+  </div>
+  <ion-list *ngIf="loadedSongs">
+    <ion-list-header>
+      <h2>Songs</h2>
+    </ion-list-header>
+    <ion-item button="" *ngFor="let song of loadedSongs" [routerLink]="['song', song.id]">
+      <ion-label>
+        <ion-row>
+          <ion-col>
+            <h2>{{song.title}}</h2>
+          </ion-col>
+          <ion-col class="ion-text-center">
+            <small>{{song.duration}}</small>
+          </ion-col>
+          <ion-col class="ion-text-center">
+            <small>{{song.releaseDate}}</small>
+          </ion-col>
+        </ion-row>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+  <ion-button (click)="onCreateSong()" expand="full" mode="ios">Request Publish Song</ion-button>
+</ion-content>

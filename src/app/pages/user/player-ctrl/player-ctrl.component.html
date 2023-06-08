@@ -1,0 +1,69 @@
+<ion-card *ngIf="activeSong" color="dark">
+  <ion-card-content class="ion-no-padding">
+    <ion-grid>
+      <ion-row class="ion-align-items-center">
+
+        <ion-col size="2">
+          <ion-img [src]="activeSong.albumImage"></ion-img>
+        </ion-col>
+
+        <ion-col class="ion-padding-start" size-md="6" size-sm="4">
+
+          <ion-label>
+            <h2><b>{{activeSong.title}}</b></h2>
+            <small>{{activeSong.artistName}}</small>
+          </ion-label>
+
+        </ion-col>
+
+        <ion-col size-md="4">
+
+          <ion-row class="ion-text-center ion-justify-content-end">
+            <ion-col class="ion-no-padding" size="4">
+              <ion-button class="ion-no-padding" fill="clear" *ngIf="isLiked"
+                          (click)="onLikeToggle('unlike')">
+                <ion-icon name="heart" size="large"></ion-icon>
+              </ion-button>
+              <ion-button class="ion-no-padding" fill="clear" *ngIf="!isLiked" (click)="onLikeToggle('like')">
+                <ion-icon name="heart-outline" size="large"></ion-icon>
+              </ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-col>
+
+        <ion-col size="12">
+          <ion-row>
+
+            <ion-col class="ion-text-center">
+              <ion-button (click)="onPrevious()" fill="clear">
+                <ion-icon name="play-skip-back-circle" size="large"></ion-icon>
+              </ion-button>
+              <ion-button (click)="onPlayer(false)" *ngIf="isPlaying" fill="clear">
+                <ion-icon name="play-circle" size="large" slot="icon-only"></ion-icon>
+              </ion-button>
+              <ion-button (click)="onPlayer(true)" *ngIf="!isPlaying" fill="clear">
+                <ion-icon name="pause-circle" size="large" slot="icon-only"></ion-icon>
+              </ion-button>
+              <ion-button (click)="onNext()" fill="clear">
+                <ion-icon name="play-skip-forward-circle" size="large"></ion-icon>
+              </ion-button>
+
+            </ion-col>
+
+          </ion-row>
+          <ion-row class="ion-align-items-center ion-justify-content-between">
+            <ion-col size="auto">
+              {{durationHelper(start)}}
+            </ion-col>
+            <ion-col size-md="10" size-sm="9">
+              <ion-range (touchend)="onSeek($event)" [(ngModel)]="progressBar" max="100" min="0"></ion-range>
+            </ion-col>
+            <ion-col size="auto">
+              {{durationHelper(end)}}
+            </ion-col>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card-content>
+</ion-card>

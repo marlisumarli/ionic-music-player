@@ -1,0 +1,10 @@
+<ion-item (click)="onAddToQueue(song)">
+  <ion-thumbnail slot="start" style="width: 40px; height: 40px;">
+    <ion-img [alt]="song.title" [src]="song.albumImage"></ion-img>
+  </ion-thumbnail>
+  <ion-label [color]="song === activeSong ? 'success' : 'dark'" class="ion-text-wrap">
+    <h2><strong>{{song.title}}</strong></h2>
+    <small>{{song.artistName}}</small>
+  </ion-label>
+</ion-item>
+

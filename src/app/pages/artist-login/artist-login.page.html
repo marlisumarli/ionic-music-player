@@ -1,0 +1,29 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button color="primary" fill="clear" mode="ios" routerLink="/login">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true">
+  <form [formGroup]="form">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Login</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-input class="ion-margin-bottom" fill="outline"
+                   label="Email" labelPlacement="floating" formControlName="email" placeholder="example@gmail.com"
+                   required="" type="email"></ion-input>
+        <ion-input class="ion-margin-bottom" fill="outline" label="Password"
+                   labelPlacement="floating" minLength="8" formControlName="password" placeholder="password"
+                   required="" type="password"></ion-input>
+        <ion-buttons>
+          <ion-button color="primary" fill="solid" mode="ios" type="submit" (click)="onLogin()">Login</ion-button>
+        </ion-buttons>
+      </ion-card-content>
+    </ion-card>
+  </form>
+</ion-content>

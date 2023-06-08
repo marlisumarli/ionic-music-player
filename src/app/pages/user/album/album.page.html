@@ -1,0 +1,37 @@
+<ion-toolbar>
+  <ion-buttons slot="start">
+    <ion-back-button [defaultHref]="'/user/tabs/home'"></ion-back-button>
+  </ion-buttons>
+  <ion-title>{{album.title}}</ion-title>
+</ion-toolbar>
+
+<ion-content>
+  <ion-img [alt]="album.title" [src]="album.image"></ion-img>
+  <div class="ion-padding">
+    <ion-text>{{album.title}} • {{album.publishDate}}
+    </ion-text>
+  </div>
+  <ion-list>
+    <ion-list-header>
+      <h2>Songs</h2>
+    </ion-list-header>
+    <ion-item (click)="onAddToQueue(song)" *ngFor="let song of songs" button="">
+      <ion-label>
+        <ion-row>
+          <ion-col>
+            {{song.title}}
+          </ion-col>
+          <ion-col class="ion-text-center">
+            <small>2:20</small>
+          </ion-col>
+          <ion-col class="ion-text-center">
+            <small>{{song.releaseDate}}</small>
+          </ion-col>
+        </ion-row>
+      </ion-label>
+      <ion-button fill="clear" slot="end">
+        <ion-icon name="heart-outline"></ion-icon>
+      </ion-button>
+    </ion-item>
+  </ion-list>
+</ion-content>

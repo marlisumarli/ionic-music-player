@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar class="ion-text-center">
+    <ion-title>Search</ion-title>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-searchbar animated="true" mode="ios" placeholder="Music, Artist" (keyup)="onSearch($event)"></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-list class="ion-no-padding" lines="none">
+    <ion-item *ngFor="let song of songs">
+      <ion-thumbnail slot="start" style="width: 40px; height: 40px;">
+        <ion-img [src]="song.albumImage"></ion-img>
+      </ion-thumbnail>
+      <ion-label>
+        <h2><strong>{{song.title}}</strong></h2>
+        <small>{{song.artistName}}</small>
+      </ion-label>
+      <ion-button fill="clear" slot="end">
+        <ion-icon name="heart-outline"></ion-icon>
+      </ion-button>
+    </ion-item>
+    <ion-item *ngFor="let artist of artists">
+      <ion-avatar slot="start" style="width: 40px; height: 40px;">
+        <ion-img [src]="artist.image"></ion-img>
+      </ion-avatar>
+      <ion-label>
+        <h2><strong>{{artist.fullName}}</strong></h2>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

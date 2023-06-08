@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/artist/tabs/albums" (click)="onCancel()"></ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button (click)="onCreateAlbum()">
+        <ion-icon name="checkmark" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Create Album</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <form [formGroup]="form">
+    <ion-list>
+      <ion-item>
+        <ion-input label="Album Title" labelPlacement="floating" placeholder="Enter text"
+                   formControlName="title"></ion-input>
+      </ion-item>
+      <ion-img [src]="url"></ion-img>
+      <ion-item>
+        <ion-input (change)="readUrl($event)" type="file" formControlName="image"></ion-input>
+      </ion-item>
+    </ion-list>
+  </form>
+</ion-content>

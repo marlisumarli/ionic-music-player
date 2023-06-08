@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar class="ion-text-center">
+    <ion-title>Admins</ion-title>
+    <ion-buttons slot="end">
+
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-searchbar animated="true" mode="ios" placeholder="Id, Name"></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list class="ion-no-padding" lines="none">
+    <ion-item button="" *ngFor="let user of users" [routerLink]="user.id">
+      <ion-row>
+        <ion-col size="auto">
+          {{user.id}} |
+        </ion-col>
+        <ion-col size="auto">
+          {{user.fullName}} |
+        </ion-col>
+        <ion-col size="auto">
+          {{user.registeredAt}}
+        </ion-col>
+      </ion-row>
+    </ion-item>
+  </ion-list>
+</ion-content>
